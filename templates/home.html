@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    home
+{% endblock %}
+
+
+{% block main %}
+<div class="p-2">Here is the page where you can find approriate
+    bridge rectifier.By giving your specifications.
+</div>
+<hr>
+<div class="p-2">give specifications below.
+</div>
+<br>
+
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="avgI" placeholder="average_rectified_current_in_A" type="number" min="0">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="VRR" placeholder="Reverse_voltage_max_in_V" type="number" min="0">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="PeakI" placeholder="peak_current_max_in_I" type="number" min="0">
+    </div>
+    <button id="he" class="btn btn-primary" type="submit">Submit</button>
+<hr>
+<br>
+<table id="resultTable" class="table table-striped">
+    
+</table>
+
+
+    <script>
+    $("#he").click(function() {
+        var input1Val = $("#avgI").val();
+        var input2Val = $("#VRR").val();
+        var input3Val = $("#PeakI").val();
+
+        $.ajax({
+            url: "/update_table",  // Your Flask route
+            type: "post",
+            data: {
+                avgI: input1Val,
+                VRR: input2Val,
+                PeakI: input3Val
+            },
+            success: function(response) {
+                // Handle the response (update the table)
+
+                $("#resultTable").html(response);
+            },
+            error: function(xhr) {
+                // Handle errors
+            }
+        });
+    });
+</script>
+{% endblock %}

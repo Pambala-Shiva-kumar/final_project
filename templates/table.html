@@ -1,0 +1,27 @@
+<!-- table_content.html -->
+<table>
+    <thead>
+        <tr>
+            <th>Average_Rectified_Current_Max</th>
+            <th>Reverse_Voltage_Max</th>
+            <th>Peak_Current_Max</th>
+            <th>Reverse_Current-Max_in_µA</th>
+            <th>Forward_Voltage</th>
+            <th>Mounting_Method</th>
+            <th>product_id</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in data_list %}
+            <tr>
+                <td>{{ item['Average_Rectified_Current_Max'] }}</td>
+                <td>{{ item['Reverse_Voltage_Max'] }}</td>
+                <td>{{ item['Peak_Current_Max'] }}</td>
+                <td>{{ item['Reverse_Current-Max_in_µA'] }}</td>
+                <td>{{ item['Forward_Voltage'] }}</td>
+                <td>{{ item['Mounting_Method'] }}</td>
+                <td>{{ item['product_id'] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

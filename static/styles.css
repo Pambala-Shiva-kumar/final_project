@@ -1,0 +1,10 @@
+body {
+    background-image: url("pe2.jpg");
+  }
+.p-2{
+  background-color: bisque;
+}
+#he{
+  position: absolute;
+  left: 47%;
+}
